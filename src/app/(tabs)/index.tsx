@@ -1,14 +1,14 @@
-import { View } from "@/src/components/Themed";
-import products from "@/assets/data/products";
-import ProductListItem from "@/src/components/ProductListItem";
+import ProductListItem from "@/components/ProductListItem";
+import products from "@assets/data/products";
+import { FlatList, View } from "react-native";
 
-
-export default function TabOneScreen() {
+export default function MenuScreen() {
   return (
-    <View>
-      <ProductListItem product={products[0]} />
-      <ProductListItem product={products[1]} />
-    </View>
+    <FlatList
+      data={products}
+      renderItem={({ item }) => (
+        <ProductListItem key={item.id} product={item} />
+      )}
+    />
   );
 }
-
